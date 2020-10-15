@@ -1,0 +1,20 @@
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+#belwo is two pointer method
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        if head == None: # 没东西在内部的情况
+            return False
+        slow = head
+        fast = head.next 
+        while (slow != fast):
+            if (not fast or not fast.next):# 就是线性 超出index 范围的情况
+                return False
+            slow = slow.next
+            fast = fast.next.next
+        return True
+    
+            
